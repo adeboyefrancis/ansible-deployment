@@ -20,31 +20,31 @@
     - name: change directory to the html directory
       shell: cd /var/www/html
 
-    - name: download web files from github
+    - name: download web files from github repo
       get_url:
-        url: https://github.com/azeezsalu/techmax/archive/refs/heads/main.zip
+        url: https://github.com/adeboyefrancis/ansible-project/blob/main/homepage.zip
         dest: /var/www/html/
 
     - name: unzip the zip folder
       ansible.builtin.unarchive:
-        src: /var/www/html/techmax-main.zip
+        src: /var/www/html/homepage.zip
         dest: /var/www/html
         remote_src: yes
 
-    - name: copy webfiles from the techmax-main directory to the html directory
+    - name: copy webfiles from the homepage directory to the html directory
       copy: 
-        src: /var/www/html/techmax-main/
+        src: /var/www/html/homepage/
         dest: /var/www/html
         remote_src: yes
 
-    - name: remove the techmax-main directory
+    - name: remove the homepage directory
       file: 
-        path: /var/www/html/techmax-main
+        path: /var/www/html/homepage
         state: absent
 
-    - name: remove the techmax-main.zip folder
+    - name: remove the hompage.zip folder
       file: 
-        path: /var/www/html/techmax-main.zip
+        path: /var/www/html/homepage.zip
         state: absent 
 
     - name: start apache server, if not started
