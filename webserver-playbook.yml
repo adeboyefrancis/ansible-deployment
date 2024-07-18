@@ -22,7 +22,7 @@
 
     - name: download web files from github repo
       get_url:
-        url: https://github.com/adeboyefrancis/ansible-project/blob/main/homepage.zip
+        url: https://github.com/adeboyefrancis/ansible-project/raw/main/homepage.zip
         dest: /var/www/html/
 
     - name: unzip the zip folder
